@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: axis-backstage-plugin-readme
-  title: '@axis-backstage/plugin-readme'
+  title: '@internal/plugin-readme'
 spec:
   lifecycle: experimental
   type: backstage-frontend-plugin

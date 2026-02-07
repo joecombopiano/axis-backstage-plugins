@@ -55,7 +55,7 @@ import {
   EntityJiraDashboardContent,
   isJiraDashboardAvailable,
 } from '@axis-backstage/plugin-jira-dashboard';
-import { ReadmeCard, isReadmeAvailable } from '@axis-backstage/plugin-readme';
+import { ReadmeCard, isReadmeAvailable } from '@internal/plugin-readme';
 import {
   isStatuspageAvailable,
   StatuspageEntityCard,

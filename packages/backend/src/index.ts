@@ -1,5 +1,5 @@
 import { createBackend } from '@backstage/backend-defaults';
-import { readmeSearchModule } from '@axis-backstage/plugin-readme-backend';
+import { readmeSearchModule } from '@internal/plugin-readme-backend';
 
 const backend = createBackend();
 backend.add(import('@backstage/plugin-catalog-backend'));
@@ -12,6 +12,6 @@ backend.add(import('@backstage/plugin-search-backend'));
 backend.add(readmeSearchModule);
 backend.add(import('@backstage/plugin-app-backend'));
 backend.add(import('@axis-backstage/plugin-jira-dashboard-backend'));
-backend.add(import('@axis-backstage/plugin-readme-backend'));
+backend.add(import('@internal/plugin-readme-backend'));
 backend.add(import('@axis-backstage/plugin-statuspage-backend'));
 backend.start();
