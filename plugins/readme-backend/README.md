@@ -32,6 +32,36 @@ const backend = createBackend();
 backend.start();
 ```
 
+### MCP Action Integration
+
+The readme backend plugin automatically registers an MCP (Model Context Protocol) action that allows AI/LLM systems to retrieve README content for catalog entities. This integration is enabled automatically when both `@internal/plugin-readme-backend` and `@backstage/plugin-mcp-actions-backend` are installed.
+
+**Available Actions:**
+
+- `get-readme-content`: Retrieves README content for a Backstage catalog entity
+  - **Input**:
+    - `entityRef` (string): Entity reference (e.g., "component:default/my-service")
+    - `stripMarkdown` (boolean, optional): Remove markdown formatting for AI processing
+  - **Output**:
+    - `entityRef`: Full entity reference
+    - `content`: README file content
+    - `contentType`: MIME type (e.g., "text/markdown")
+    - `fileName`: README filename (e.g., "README.md")
+
+**Example Usage:**
+```typescript
+// AI/LLM systems can invoke this action to fetch README content
+{
+  "action": "get-readme-content",
+  "input": {
+    "entityRef": "component:default/my-service",
+    "stripMarkdown": true
+  }
+}
+```
+
+The action leverages the same caching and configuration as the HTTP API, ensuring consistent behavior and performance.
+
 ### Search Integration
 
 The readme backend plugin provides a search collator that makes README content searchable through Backstage's search functionality. To enable search indexing for README files, add the search module to your backend:
