@@ -16,7 +16,10 @@ import {
 } from '@backstage/frontend-plugin-api';
 import { readmeApiRef } from './api/ReadmeApi';
 import { ReadmeClient } from './api/ReadmeClient';
-import { EntityCardBlueprint } from '@backstage/plugin-catalog-react/alpha';
+import {
+  EntityCardBlueprint,
+  EntityContentBlueprint,
+} from '@backstage/plugin-catalog-react/alpha';
 import { SearchResultListItemBlueprint } from '@backstage/plugin-search-react/alpha';
 import DescriptionIcon from '@mui/icons-material/Description';
 
@@ -38,6 +41,21 @@ const readmeCard = EntityCardBlueprint.make({
   params: {
     loader: async () =>
       import('./components/ReadmeCard').then(m => <m.ReadmeCard />),
+  },
+});
+
+/**
+ * Entity content tab extension for displaying README on entity page
+ * @alpha
+ */
+const readmeEntityContent = EntityContentBlueprint.make({
+  params: {
+    defaultPath: 'readme',
+    defaultTitle: 'README',
+    loader: async () =>
+      import('./components/FetchComponent').then(
+        m => () => <m.FetchComponent />,
+      ),
   },
 });
 
@@ -64,7 +82,12 @@ const readmeSearchResultListItem = SearchResultListItemBlueprint.make({
  */
 const plugin: FrontendFeature = createFrontendPlugin({
   pluginId: 'readme',
-  extensions: [readmeApi, readmeCard, readmeSearchResultListItem],
+  extensions: [
+    readmeApi,
+    readmeCard,
+    readmeEntityContent,
+    readmeSearchResultListItem,
+  ],
 });
 
 export default plugin;

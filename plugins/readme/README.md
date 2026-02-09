@@ -104,6 +104,11 @@ const app = createApp({
 });
 ```
 
+The plugin provides the following extensions:
+- **Entity Card**: Displays README as a card on the entity overview page
+- **Entity Content Tab**: Displays README as a dedicated tab on the entity page (accessible at `/readme`)
+- **Search Results**: Renders README search results in search pages
+
 3. If necessary, you can also customize the plugin:
 
 ```yaml
@@ -163,11 +168,17 @@ import { ReadmeSearchResultListItem } from '@axis-backstage/plugin-readme';
 
 ## Layout
 
+The README plugin provides multiple ways to display README content:
+
+### Overview Card
 The readme card is located in the overview page on the entity page. From the card header it is also possible to open a dialog displaying the full README.md.
 
 ![readme-card](https://github.com/AxisCommunications/backstage-plugins/blob/main/plugins/readme/media/readme-card.png)
 
 ![readme-dialog](https://github.com/AxisCommunications/backstage-plugins/blob/main/plugins/readme/media/readme-dialog.png)
+
+### Entity Content Tab (New Frontend System)
+When using the new frontend system, the README is also available as a dedicated tab on the entity page. This provides a full-page view of the README content without the card wrapper. The tab is automatically added at the path `/readme` and appears in the entity page navigation.
 
 ### Troubleshooting
 
