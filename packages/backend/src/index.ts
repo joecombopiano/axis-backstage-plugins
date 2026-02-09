@@ -1,5 +1,4 @@
 import { createBackend } from '@backstage/backend-defaults';
-import { readmeSearchModule } from '@axis-backstage/plugin-readme-backend';
 
 const backend = createBackend();
 backend.add(import('@backstage/plugin-catalog-backend'));
@@ -9,9 +8,9 @@ backend.add(import('@backstage/plugin-auth-backend-module-microsoft-provider'));
 backend.add(import('@backstage/plugin-mcp-actions-backend'));
 backend.add(import('@backstage/plugin-techdocs-backend'));
 backend.add(import('@backstage/plugin-search-backend'));
-backend.add(readmeSearchModule);
+backend.add(import('@internal/plugin-readme-search-backend'));
 backend.add(import('@backstage/plugin-app-backend'));
 backend.add(import('@axis-backstage/plugin-jira-dashboard-backend'));
-backend.add(import('@axis-backstage/plugin-readme-backend'));
+backend.add(import('@internal/plugin-readme-backend'));
 backend.add(import('@axis-backstage/plugin-statuspage-backend'));
 backend.start();

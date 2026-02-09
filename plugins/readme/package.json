@@ -1,5 +1,5 @@
 {
-  "name": "@axis-backstage/plugin-readme",
+  "name": "@internal/plugin-readme",
   "version": "0.18.0",
   "exports": {
     ".": "./src/index.ts",
@@ -23,14 +23,15 @@
     "access": "public",
     "main": "dist/index.esm.js",
     "types": "dist/index.d.ts",
-    "directory": "_release/package"
+    "directory": "_release/package",
+    "registry": "https://demo.spotifyportal.com/api/plugin-installer/registry/npm"
   },
   "backstage": {
     "role": "frontend-plugin",
     "pluginId": "readme",
     "pluginPackages": [
-      "@axis-backstage/plugin-readme",
-      "@axis-backstage/plugin-readme-backend"
+      "@internal/plugin-readme",
+      "@internal/plugin-readme-backend"
     ]
   },
   "sideEffects": false,

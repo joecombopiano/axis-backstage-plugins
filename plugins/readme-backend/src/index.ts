@@ -5,4 +5,6 @@
  */
 
 export { readmePlugin as default } from './plugin';
-export { readmeSearchModule } from './collator/module';
+export { isSymLink } from './lib';
+export { getCacheTtl } from './service/config';
+export { getReadmeTypes } from './service/constants';
