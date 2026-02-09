@@ -16,9 +16,7 @@ import { isError } from '@backstage/errors';
 import { ScmIntegrations } from '@backstage/integration';
 import { DocumentCollatorFactory } from '@backstage/plugin-search-common';
 import { Readable } from 'stream';
-import { isSymLink } from '../lib';
-import { getCacheTtl } from '../service/config';
-import { getReadmeTypes } from '../service/constants';
+import { isSymLink, getCacheTtl, getReadmeTypes } from '@internal/plugin-readme-backend';
 
 /**
  * Extended index document for README files with additional metadata
